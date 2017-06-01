@@ -19,5 +19,20 @@ A collaborative Java web-app developed with eclipse that displays information on
 - The **PresServlet** provides information back through a **.jsp** file for the user to view and chooses what president's information (name, term years, picture, facts, etc.) will be displayed based upon if-logic located in the servlet that evaluates user navigation in put.
 
 ## Example
+```
+@Override
+	public List<President> getParty(String party) {
+		List<President> presList = new ArrayList<>();
+		for (President pres : presidents) {
+			if (pres.getParty().equals(party)) {
+				presList.add(pres);
+			}
+		}
+		return presList;
+	}
+  ```
+  #### Breakdown
+Sorting the Presidents by party was done by iterating the list of Presidents with the for each loop. Once the list was iterated over we used the the President's Class party variable to match the party recieved through the argument. If both parties matched then the president was stored into the presList and displayed to the user.
 
 ## Reflection
+
