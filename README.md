@@ -1,13 +1,6 @@
 # Summary
 A collaborative Java web-app developed with eclipse that displays information on presidents of the United States based on user input.
-
-## In This Document
-1. [How to Execute](#how-to-execute)
-2. [Class Structure Overview](#class-structure-overview)
-
-## How to Execute
-- The web-app is hosted on: insert URL <a href="http://35.162.216.236:8080/PresidentsWeb/">**here**</a>
-
+![alt text](WebContent/presland.png "Landing Page")
 ## Instructions
 1. User arrives on landing page.
 2. User can select president based on term #, name or party.
@@ -31,6 +24,8 @@ A collaborative Java web-app developed with eclipse that displays information on
 		return presList;
 	}
   ```
+  
+  ![alt text](WebContent/whig.png "Landing Page")
   #### Breakdown
 Sorting the Presidents by party was done by iterating the list of Presidents with the for each loop. Once the list was iterated over we used the the President's Class party variable to match the party recieved through the argument. If both parties matched then the president was stored into the presList and displayed to the user.
 
