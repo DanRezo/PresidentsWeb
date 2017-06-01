@@ -26,69 +26,58 @@ public class PresidentServlet extends HttpServlet {
 		String pres = req.getParameter("pres");
 		String back = req.getParameter("back");
 		String id = req.getParameter("id");
-		System.out.println("suckgggg");
-		System.out.println(pres);
-		System.out.println(id);
-		if(next!=null){
-			System.out.println("next" + next);
-			System.out.println("id" + id);
-			try{
-			String term = Integer.parseInt(id) + 1 + "";
-			if( term.equals("46")){
-				term="1";
-			}
-			President p = dao.getTerm(term);
-			System.out.println(p);
-			req.setAttribute("president", p);
-			req.setAttribute("presList", dao.getAllPresidents());
-			req.getRequestDispatcher("/select.jsp").forward(req, resp);
-			}
-			catch(Exception e){
+		if (next != null) {
+			try {
+				String term = Integer.parseInt(id) + 1 + "";
+				if (term.equals("46")) {
+					term = "1";
+				}
+				President p = dao.getTerm(term);
+				System.out.println(p);
+				req.setAttribute("president", p);
+				req.setAttribute("presList", dao.getAllPresidents());
+				req.getRequestDispatcher("/select.jsp").forward(req, resp);
+			} catch (Exception e) {
 				req.setAttribute("president", dao.getTerm("1"));
 				req.setAttribute("presList", dao.getAllPresidents());
 				req.getRequestDispatcher("/select.jsp").forward(req, resp);
-				
+
 			}
-		}
-		else if (back!=null){
+		} else if (back != null) {
 			System.out.println("back" + back);
 			System.out.println("id" + id);
-			try{
-			String term = Integer.parseInt(id) - 1 + "";
-			if( term.equals("0")){
-				term="45";
-			}
-			President p = dao.getTerm(term);
-			System.out.println(p);
-			req.setAttribute("president", p);
-			req.setAttribute("presList", dao.getAllPresidents());
-			req.getRequestDispatcher("/select.jsp").forward(req, resp);
-			}
-			catch(Exception e){
+			try {
+				String term = Integer.parseInt(id) - 1 + "";
+				if (term.equals("0")) {
+					term = "45";
+				}
+				President p = dao.getTerm(term);
+				System.out.println(p);
+				req.setAttribute("president", p);
+				req.setAttribute("presList", dao.getAllPresidents());
+				req.getRequestDispatcher("/select.jsp").forward(req, resp);
+			} catch (Exception e) {
 				req.setAttribute("president", dao.getTerm("1"));
 				req.setAttribute("presList", dao.getAllPresidents());
 				req.getRequestDispatcher("/select.jsp").forward(req, resp);
-				
+
 			}
-		}
-		else if (id!=null){
+		} else if (id != null) {
 			President p = dao.getTerm(id);
 			System.out.println(p);
 			req.setAttribute("president", p);
 			req.setAttribute("presList", dao.getAllPresidents());
 			req.getRequestDispatcher("/select.jsp").forward(req, resp);
-		}
-		else if(pres!=null){
+		} else if (pres != null) {
 			System.out.println("*********************************");
 			req.setAttribute("presidentList", dao.getAllPresidents());
 			req.setAttribute("presList", dao.getAllPresidents());
 			req.getRequestDispatcher("/select.jsp").forward(req, resp);
 
-		}
-		else{ 
+		} else {
 			System.out.println("tesssst");
-		req.setAttribute("presList", dao.getAllPresidents());
-		req.getRequestDispatcher("/index.html").forward(req, resp);
+			req.setAttribute("presList", dao.getAllPresidents());
+			req.getRequestDispatcher("/index.html").forward(req, resp);
 		}
 	}
 
@@ -99,8 +88,6 @@ public class PresidentServlet extends HttpServlet {
 		String term = req.getParameter("term");
 		String next = req.getParameter("next");
 		String id = req.getParameter("id");
-		System.out.println(name);
-		System.out.println(party);
 
 		if (name != null) {
 			President p = dao.getTerm(name);
@@ -115,21 +102,18 @@ public class PresidentServlet extends HttpServlet {
 			req.setAttribute("president", null);
 			req.setAttribute("presList", dao.getAllPresidents());
 			req.getRequestDispatcher("/select.jsp").forward(req, resp);
-			
-			
+
 		} else if (term != null) {
 			President p = dao.getTerm(term);
 			req.setAttribute("president", p);
 			req.setAttribute("presList", dao.getAllPresidents());
 			req.getRequestDispatcher("/select.jsp").forward(req, resp);
-		}  else if (next != null) {
-			
+		} else if (next != null) {
+
 		} else {
 			req.getRequestDispatcher("/error.jsp").forward(req, resp);
 
 		}
-		
-		
 
 	}
 

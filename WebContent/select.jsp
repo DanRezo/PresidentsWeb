@@ -20,7 +20,7 @@
 	<div id="next">
 		<a href="pres.do?next=next&id=${president.termNumber}">&gt</a>
 	</div>
-	
+
 	<div id="mainContainer">
 
 

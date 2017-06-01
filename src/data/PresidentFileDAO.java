@@ -20,9 +20,6 @@ public class PresidentFileDAO implements PresidentDAO {
 	}
 
 	private void loadFile() {
-		// Retrieve an input stream from the servlet context
-		// rather than directly from the file system
-		System.out.println("test");
 		InputStream is = servletContext.getResourceAsStream(filename);
 		try (BufferedReader buf = new BufferedReader(new InputStreamReader(is))) {
 			String line;
@@ -39,8 +36,8 @@ public class PresidentFileDAO implements PresidentDAO {
 				String party = words[5];
 				String fact = words[6];
 				String picture = words[7];
-				presidents.add(new President(term, firstName, middleName, lastName, startYear, endYear, party, fact, picture));
-System.out.print("help");
+				presidents.add(
+						new President(term, firstName, middleName, lastName, startYear, endYear, party, fact, picture));
 			}
 		}
 
